@@ -9,20 +9,21 @@ import java.util.Date;
 @Entity
 public class Hours {
 
-    private Long id;
+    private Integer id;
     private Date date;
-    private Long total;
+    private Integer total;
     private String notes;
     private Subjects subjects;
 
+    public Hours (){}
 
     @Id
     @GeneratedValue
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -34,11 +35,11 @@ public class Hours {
         this.date = date;
     }
 
-    public Long getTotal() {
+    public Integer getTotal() {
         return total;
     }
 
-    public void setTotal(Long total) {
+    public void setTotal(Integer total) {
         this.total = total;
     }
 

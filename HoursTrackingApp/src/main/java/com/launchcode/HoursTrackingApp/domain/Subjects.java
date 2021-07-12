@@ -2,14 +2,13 @@ package com.launchcode.HoursTrackingApp.domain;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.HashSet;
 import java.util.Set;
 import java.util.TreeSet;
 
 @Entity
 public class Subjects {
 
-    private Long id;
+    private Integer id;
     private String name;
     private Date startDate;
     private Date endDate;
@@ -18,13 +17,15 @@ public class Subjects {
 
     @Id
     @GeneratedValue
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
+
+    public Subjects(){}
 
     public String getName() {
         return name;

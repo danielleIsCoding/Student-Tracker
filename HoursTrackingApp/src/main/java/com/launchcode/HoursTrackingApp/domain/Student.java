@@ -1,26 +1,26 @@
 package com.launchcode.HoursTrackingApp.domain;
 
 import javax.persistence.*;
-import java.util.HashSet;
 import java.util.Set;
 import java.util.TreeSet;
 
 @Entity
 public class Student {
 
-    private Long id;
+    private Integer id;
     private String name;
     private User user;
     private Set<Subjects> subjects = new TreeSet<>();
 
+    public Student (){}
 
     @Id
     @GeneratedValue
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
