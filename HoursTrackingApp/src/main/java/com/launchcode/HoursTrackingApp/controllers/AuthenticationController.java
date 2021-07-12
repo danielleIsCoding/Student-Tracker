@@ -64,7 +64,7 @@ public class AuthenticationController {
         userRepository.save(newUser);
         setUserInSession(request.getSession(), newUser);
 
-        return "redirect:";
+        return "student";
     }
     @GetMapping("/login")
     public String displayLoginForm(Model model) {
@@ -96,12 +96,12 @@ public class AuthenticationController {
         if (!theUser.isMatchingPassword(password)) {
             errors.rejectValue("password", "password.invalid", "Invalid password");
             model.addAttribute("title", "Log In");
-            return "login";
+            return "redirect:";
         }
 
         setUserInSession(request.getSession(), theUser);
 
-        return "redirect:";
+        return "student";
     }
 
     @GetMapping("/logout")
