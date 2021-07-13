@@ -38,7 +38,7 @@ public class User  {
         this.Username = Username;
     }
 
-    @OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY, mappedBy = "user")
+    @OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY, mappedBy = "users")
     public Set<Student> getStudent() {
         return student;
     }
@@ -47,7 +47,7 @@ public class User  {
         this.student = student;
     }
 
-    @OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER, mappedBy="user")
+    @OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER, mappedBy="users")
     public Set<Authority> getAuthorities()
     {
         return authorities;

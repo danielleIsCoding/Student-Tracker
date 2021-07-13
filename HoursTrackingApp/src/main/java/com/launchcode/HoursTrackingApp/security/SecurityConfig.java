@@ -25,15 +25,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
                 .authorizeRequests()
                 .antMatchers("/js/*","/css/*").permitAll()
                 .antMatchers("/register").permitAll()
-//          .antMatchers("/admin/**").hasRole("ADMIN") // commented out on purpose, just for learning purposes
                 .antMatchers("/**").hasRole("USER").and()
                 .formLogin()
                 .loginPage("/login")
-                .defaultSuccessUrl("/budgets")
+                .defaultSuccessUrl("/students")
                 .permitAll().and()
                 .logout()
                 .logoutSuccessUrl("/")
                 .permitAll();
-
     }
 }

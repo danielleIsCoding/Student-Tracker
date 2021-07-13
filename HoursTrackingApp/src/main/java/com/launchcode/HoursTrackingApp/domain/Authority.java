@@ -11,7 +11,7 @@ import javax.persistence.ManyToOne;
 public class Authority implements GrantedAuthority {
     private Integer id;
     private String authority;
-    private User user;
+    private User users;
 
     @Id
     @GeneratedValue
@@ -32,11 +32,11 @@ public class Authority implements GrantedAuthority {
     }
 
     @ManyToOne
-    public User getUser() {
-        return user;
+    public User getUsers() {
+        return users;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUsers(User users) {
+        this.users = users;
     }
 }

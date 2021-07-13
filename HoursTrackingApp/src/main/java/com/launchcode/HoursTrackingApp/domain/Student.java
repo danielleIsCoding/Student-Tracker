@@ -9,7 +9,7 @@ public class Student {
 
     private Integer id;
     private String name;
-    private User user;
+    private User users;
     private Set<Subject> subjects = new TreeSet<>();
 
     public Student (){}
@@ -33,12 +33,19 @@ public class Student {
     }
 
     @ManyToOne
-    public User getUser() {
-        return user;
+    @JoinTable(
+            name="user_student",
+            joinColumns=
+            @JoinColumn(name="user_id"),
+            inverseJoinColumns=
+            @JoinColumn(name="student_id")
+    )
+    public User getUsers() {
+        return users;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUsers(User users) {
+        this.users = users;
     }
 
     @OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY, mappedBy = "student")
