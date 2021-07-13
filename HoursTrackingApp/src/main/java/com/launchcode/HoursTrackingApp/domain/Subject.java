@@ -6,13 +6,13 @@ import java.util.Set;
 import java.util.TreeSet;
 
 @Entity
-public class Subjects {
+public class Subject {
 
     private Integer id;
     private String name;
     private Date startDate;
     private Date endDate;
-    private Student student;
+    private Student students;
     private Set<Hours> hours = new TreeSet<>();
 
     @Id
@@ -25,7 +25,7 @@ public class Subjects {
         this.id = id;
     }
 
-    public Subjects(){}
+    public Subject(){}
 
     public String getName() {
         return name;
@@ -55,11 +55,11 @@ public class Subjects {
 
     @ManyToOne
     public Student getStudent() {
-        return student;
+        return students;
     }
 
-    public void setStudent(Student student) {
-        this.student = student;
+    public void setStudent(Student students) {
+        this.students = students;
     }
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "subjects" )

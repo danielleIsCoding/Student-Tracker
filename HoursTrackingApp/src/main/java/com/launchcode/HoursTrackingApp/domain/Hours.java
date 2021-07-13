@@ -13,7 +13,7 @@ public class Hours {
     private Date date;
     private Integer total;
     private String notes;
-    private Subjects subjects;
+    private Subject subjects;
 
     public Hours (){}
 
@@ -52,11 +52,11 @@ public class Hours {
     }
 
     @ManyToOne
-    public Subjects getSubjects() {
+    public Subject getSubjects() {
         return subjects;
     }
 
-    public void setSubjects(Subjects subjects) {
+    public void setSubjects(Subject subjects) {
         this.subjects = subjects;
     }
 }
