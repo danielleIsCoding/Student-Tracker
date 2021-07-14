@@ -64,7 +64,7 @@ public class AuthenticationController {
         userRepository.save(newUser);
         setUserInSession(request.getSession(), newUser);
 
-        return "redirect:";
+        return "redirect:/login";
     }
     @GetMapping("/login")
     public String displayLoginForm(Model model) {
@@ -101,7 +101,7 @@ public class AuthenticationController {
 
         setUserInSession(request.getSession(), theUser);
 
-        return "redirect:";
+        return "redirect:/student/index";
     }
 
     @GetMapping("/logout")

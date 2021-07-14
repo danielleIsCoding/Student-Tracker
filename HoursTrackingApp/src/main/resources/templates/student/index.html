@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+
+    <head>
+       <title>Welcome to the Hours Tracker App</title>
+        <script th:replace="fragments/header:: header" >
+
+        </script>
+    </head>
+    <body>
+
+        <div class="card">
+                <div class="card">
+                    <div class="row">
+                    <h2 class="card-header">
+                        Students
+                    </h2>
+
+                    </div>
+                </div>
+            <div class="list-group list-group-flush" th:each="student: ${student}">
+                <a class="list-group-item list-group-item-action" th:href="@{'/student/view/' + ${student.id}}" th:text="${student.name}"></a>
+
+            </div>
+
+        </div>
+        <a th:href="@{'/student/add'}"><button type="submit" class="btn btn-primary" value="Add a Student"> Add Student</button></a>
+    </body>
+</html>

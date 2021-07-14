@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+    <head>
+        <title>Welcome to the Hours Tracker App</title>
+        <script th:replace="fragments/header:: header" >
+
+        </script>
+    </head>
+    <body>
+        <h1 th:text="${'Student: ' + student.name}">Default Title</h1>
+            <div class="list-group list-group-flush">
+                <p th:text="${'Name: ' + student.name}"></p>
+            </div>
+        <div>
+            this is where subjects should be
+        </div>
+
+    </body>
+</html>

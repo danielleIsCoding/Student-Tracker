@@ -12,10 +12,11 @@ import java.util.TreeSet;
 @Table(name="users")
 public class User  {
 
-    private Long id;
+    private Integer id;
     private String Username;
     private String pwHash;
     private static final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+
 
     private Set<Student> student = new TreeSet<>();
 
@@ -28,11 +29,11 @@ public class User  {
 
     @Id
     @GeneratedValue
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
