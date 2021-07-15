@@ -1,8 +1,10 @@
 package com.launchcode.HoursTrackingApp.domain;
 
 
+
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
 import javax.persistence.*;
-import java.util.HashSet;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -12,14 +14,18 @@ public class User  {
 
     private Integer id;
     private String Username;
-    private String password;
-    private String confirmPassword;
-    private Set<Authority> authorities = new HashSet<>();
+    private String pwHash;
+    private static final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
 
     private Set<Student> student = new TreeSet<>();
 
     public User(){}
+
+    public User(String Username, String password) {
+        this.Username = Username;
+        this.pwHash = encoder.encode(password);;
+    }
 
     @Id
     @GeneratedValue
@@ -39,7 +45,15 @@ public class User  {
         this.Username = Username;
     }
 
-    @OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY, mappedBy = "users")
+    public String getPassword() {
+        return pwHash;
+    }
+
+    public void setPassword(String password) {
+        this.pwHash = password;
+    }
+
+    @OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY, mappedBy = "user")
     public Set<Student> getStudent() {
         return student;
     }
@@ -48,32 +62,8 @@ public class User  {
         this.student = student;
     }
 
-    @OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER, mappedBy="users")
-    public Set<Authority> getAuthorities()
-    {
-        return authorities;
-    }
-    public void setAuthorities(Set<Authority> authorities)
-    {
-        this.authorities = authorities;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    @Transient
-    public String getConfirmPassword()
-    {
-        return confirmPassword;
-    }
-    public void setConfirmPassword(String confirmPassword)
-    {
-        this.confirmPassword = confirmPassword;
+    public boolean isMatchingPassword(String password) {
+        return encoder.matches(password, pwHash);
     }
 
 }

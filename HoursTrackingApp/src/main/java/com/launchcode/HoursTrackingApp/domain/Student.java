@@ -10,7 +10,7 @@ public class Student {
     private Integer id;
     private String name;
     private User user;
-    private Set<Subjects> subjects = new TreeSet<>();
+    private Set<Subject> subjects = new TreeSet<>();
 
     public Student (){}
 
@@ -49,11 +49,11 @@ public class Student {
     }
 
     @OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY, mappedBy = "student")
-    public Set<Subjects> getSubjects() {
+    public Set<Subject> getSubjects() {
         return subjects;
     }
 
-    public void setSubjects(Set<Subjects> subjects) {
+    public void setSubjects(Set<Subject> subjects) {
         this.subjects = subjects;
     }
 }
