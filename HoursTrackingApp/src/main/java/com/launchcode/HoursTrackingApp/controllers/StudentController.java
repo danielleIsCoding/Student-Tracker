@@ -3,7 +3,6 @@ package com.launchcode.HoursTrackingApp.controllers;
 import com.launchcode.HoursTrackingApp.domain.Student;
 import com.launchcode.HoursTrackingApp.repositories.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -53,6 +52,7 @@ public class StudentController  {
         if (optStudent.isPresent()) {
             Student student = (Student) optStudent.get();
             model.addAttribute("student", student);
+            model.addAttribute("subject", student.getSubjects());
             return "student/view";
         } else {
             return "redirect:../";
