@@ -2,6 +2,7 @@ package com.launchcode.HoursTrackingApp.controllers;
 
 import com.launchcode.HoursTrackingApp.domain.Student;
 import com.launchcode.HoursTrackingApp.repositories.StudentRepository;
+import com.launchcode.HoursTrackingApp.repositories.SubjectRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,6 +20,9 @@ public class StudentController  {
 
     @Autowired
     private StudentRepository studentRepository;
+
+    @Autowired
+    private SubjectRepository subjectRepository;
 
     @RequestMapping("student/index")
     public String displayAllStudents(Model model){
@@ -58,7 +62,11 @@ public class StudentController  {
             return "redirect:../";
         }
     }
-
+    @RequestMapping("student/view/{studentId}")
+    public String displayAllSubjects(Model model, @PathVariable int studentId){
+        model.addAttribute("subjects", subjectRepository.findById(studentId));
+        return "student/view/{studentId}";
+    }
 
 }
 

@@ -1,29 +1,29 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 
-<head>
-    <title>ADD STUDENTS</title>
-    <script th:replace="fragments/header:: header" >
+    <head>
+        <title>ADD STUDENTS</title>
+        <script th:replace="fragments/header:: header" >
 
-    </script>
-</head>
-<body>
-<div class="card">
-    <div class="card-header">
-        <h2>Add Students Below</h2>
-    </div>
-    <div class="card-body">
-        <form method = "post">
-            <div class="mb-3">
-                <label class="form-label">Student Name</label>
-                <input class="form-control" th:field="${student.name}"/>
-
+        </script>
+    </head>
+    <body>
+    <div class="card">
+        <div class="card-header">
+            <h2>Add Students Below</h2>
             </div>
+                <div class="card-body">
+                    <form method = "post">
+                        <div class="mb-3">
+                            <label class="form-label">Student Name</label>
+                            <input class="form-control" th:field="${student.name}"/>
 
-           <button type="submit" class="btn btn-primary" value="Add Student">Add Student</button>
-        </form>
+                        </div>
 
-    </div>
-</div>
-</body>
+                       <button type="submit" class="btn btn-primary" value="Add Student">Add Student</button>
+                    </form>
+
+                </div>
+        </div>
+    </body>
 </html>

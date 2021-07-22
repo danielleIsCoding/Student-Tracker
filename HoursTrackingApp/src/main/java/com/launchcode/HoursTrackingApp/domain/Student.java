@@ -33,13 +33,6 @@ public class Student {
     }
 
     @ManyToOne
-    @JoinTable(
-            name="student_user",
-            joinColumns=
-            @JoinColumn(name="user_id"),
-            inverseJoinColumns=
-            @JoinColumn(name="student_id")
-    )
     public User getUser() {
         return user;
     }

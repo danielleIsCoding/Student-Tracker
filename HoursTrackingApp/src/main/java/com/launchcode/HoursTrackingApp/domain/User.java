@@ -9,14 +9,13 @@ import java.util.Set;
 import java.util.TreeSet;
 
 @Entity
-@Table(name="users")
+
 public class User  {
 
     private Integer id;
     private String Username;
     private String pwHash;
     private static final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-
 
     private Set<Student> student = new TreeSet<>();
 
@@ -53,7 +52,7 @@ public class User  {
         this.pwHash = password;
     }
 
-    @OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY, mappedBy = "user")
+    @OneToMany(mappedBy = "user")
     public Set<Student> getStudent() {
         return student;
     }
