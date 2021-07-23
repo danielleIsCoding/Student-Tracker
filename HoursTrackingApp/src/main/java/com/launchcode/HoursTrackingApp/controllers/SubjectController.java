@@ -14,7 +14,7 @@ import javax.validation.Valid;
 import java.util.Optional;
 
 @Controller
-
+@RequestMapping("student/view/{studentId}")
 public class SubjectController {
 
     @Autowired
@@ -22,20 +22,18 @@ public class SubjectController {
     @Autowired
     private SubjectRepository subjectRepository;
 
-
-    @RequestMapping("student/view/{studentId}/addSubjects")
-
+    @RequestMapping("addSubjects")
     public String addForm (){
         return "student/addSubjects";
     }
 
-    @GetMapping("student/view/{studentId}/addSubjects")
+    @GetMapping("addSubjects")
     public String displayAddSubjectForm(Model model) {
         model.addAttribute(new Subject());
         return "student/addSubjects";
     }
 
-    @PostMapping("student/view/{studentId}/addSubjects")
+    @PostMapping("addSubjects")
     public String processAddSubjectForm(@ModelAttribute @Valid Subject newSubject, @PathVariable int studentId,
                                         Errors errors, Model model) {
 
@@ -46,7 +44,12 @@ public class SubjectController {
         return "redirect:/student/view/{studentId} ";
     }
 
+    @RequestMapping("subject/{subjectId}")
+    public String editSubject(Model model, @PathVariable int subjectId){
 
+
+        return "student/subjects";
+    }
 
 
 }
