@@ -1,16 +1,22 @@
 package com.launchcode.HoursTrackingApp.controllers;
 
 import com.launchcode.HoursTrackingApp.domain.Student;
+import com.launchcode.HoursTrackingApp.domain.User;
 import com.launchcode.HoursTrackingApp.repositories.StudentRepository;
 import com.launchcode.HoursTrackingApp.repositories.SubjectRepository;
+import com.launchcode.HoursTrackingApp.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+import java.util.HashSet;
 import java.util.Optional;
+import java.util.Set;
 
 
 @Controller
@@ -24,10 +30,22 @@ public class StudentController  {
     @Autowired
     private SubjectRepository subjectRepository;
 
+    @Autowired
+    private AuthenticationController authenticationController;
+
+    @Autowired
+    private UserRepository userRepository;
+
     @RequestMapping("student/index")
-    public String displayAllStudents(Model model){
+    public String displayAllStudents(Model model, HttpServletRequest request){
+
+        HttpSession session = request.getSession();
+        Optional<User> newUser = Optional.ofNullable(authenticationController.getUserFromSession(session));
+        Set<Optional<User>> users = new HashSet<>();
+        users.add(newUser);
         model.addAttribute("title", "All Students");
         model.addAttribute("student", studentRepository.findAll());
+
         return "student/index";
     }
 
@@ -38,13 +56,16 @@ public class StudentController  {
     }
 
     @PostMapping("student/add")
-    public String processAddStudentForm(@ModelAttribute @Valid Student newStudent,
+    public String processAddStudentForm(@ModelAttribute @Valid Student newStudent, HttpServletRequest request,
                                          Errors errors, Model model) {
 
         if (errors.hasErrors()) {
             return "student/add";
         }
 
+        HttpSession session = request.getSession();
+        Optional<User> user = Optional.ofNullable(authenticationController.getUserFromSession(session));
+        newStudent.setUser((user.get()));
         model.addAttribute(studentRepository.save(newStudent));
         return "redirect:/student/index";
     }

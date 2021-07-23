@@ -49,4 +49,5 @@ public class Student {
     public void setSubjects(Set<Subject> subjects) {
         this.subjects = subjects;
     }
+
 }
