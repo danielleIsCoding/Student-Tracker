@@ -15,10 +15,11 @@
                 </div>
                 <div class="card-body">
                     <div class="list-group list-group-flush"  th:each="subject: ${student.subjects}">
-                        <h4 class="list-group-item list-group-item-action" th:text="${subject.name}"></h4>
+                        <h4 class="list-group-item list-group-item-action"><a th:href="@{/students/view/{studentId}/subject/{subjectId}(studentId=${student.id},
+                            subjectId=${subject.id})}"th:text="${subject.name}"></a></h4>
                     </div>
-
                 </div>
+
             </div>
         </div>
             <form th:action ="@{/student/view/{studentId}/addSubjects(studentId=${student.id})}">
