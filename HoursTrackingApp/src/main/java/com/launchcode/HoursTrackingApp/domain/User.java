@@ -52,7 +52,7 @@ public class User  {
         this.pwHash = password;
     }
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY, mappedBy = "user" )
     public Set<Student> getStudent() {
         return student;
     }

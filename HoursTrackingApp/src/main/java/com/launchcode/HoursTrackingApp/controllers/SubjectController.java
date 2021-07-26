@@ -43,14 +43,19 @@ public class SubjectController {
 
         return "redirect:/student/view/{studentId} ";
     }
-
     @RequestMapping("subject/{subjectId}")
     public String editSubject(Model model, @PathVariable int subjectId){
-
 
         return "student/subjects";
     }
 
+    @PostMapping("subject/{subjectId}")
+    public String deleteSubject(@ModelAttribute @Valid Subject subject, Model model, @PathVariable int subjectId){
+
+        subjectRepository.deleteById(subjectId);
+        model.addAttribute("subject", subject.getName());
+        return "redirect:/student/view/{studentId}";
+    }
 
 }
 
