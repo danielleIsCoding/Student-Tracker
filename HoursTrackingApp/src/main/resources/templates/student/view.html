@@ -21,11 +21,7 @@
                 </div>
             </div>
         </div>
-            <form th:action ="@{/student/view/{studentId}/addSubjects(studentId=${student.id})}">
-                <button class="btn btn-primary" value="Add Subjects">Add Subjects</button>
-            </form>
-            <form method = "post">
-                <button type="submit" class="btn btn-primary" value="Delete">Delete Student</button>
-            </form>
+            <form th:action ="@{/student/view/{studentId}/addSubjects(studentId=${student.id})}"> <button class="btn btn-primary" value="Add Subjects">Add Subjects</button></form>
+            <form method = "post"><button type="submit" class="btn btn-primary" value="Delete">Delete Student</button></form>
     </body>
 </html>

@@ -16,11 +16,9 @@ import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.util.Optional;
 
-
 @Controller
 
 public class StudentController  {
-
 
     @Autowired
     private StudentRepository studentRepository;
@@ -87,12 +85,9 @@ public class StudentController  {
 
     @PostMapping("student/view/{studentId}")
     public String deleteStudent( @PathVariable int studentId){
-
-        studentRepository.deleteById(studentId);
-
+        studentRepository.deleteById(studentId); ;
         return "redirect:/student/index";
     }
-
 }
 
 
