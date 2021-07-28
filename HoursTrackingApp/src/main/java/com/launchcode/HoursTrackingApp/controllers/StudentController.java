@@ -32,13 +32,19 @@ public class StudentController  {
     @Autowired
     private UserRepository userRepository;
 
+    //Displays all students in database
     @RequestMapping("student/index")
     public String displayAllStudents(Model model, HttpServletRequest request){
 
         HttpSession session = request.getSession();
         User newUser = (authenticationController.getUserFromSession(session));
+        Integer newUserId = newUser.getId();
+        System.out.println(newUser.getId());
+        System.out.println(newUserId);
         model.addAttribute("title", "All Students");
-        model.addAttribute("student", studentRepository.findAll());
+        model.addAttribute("user", studentRepository.findById(newUserId));
+        model.addAttribute("student", newUser.getStudent());
+
 
         return "student/index";
     }
@@ -96,29 +102,11 @@ public class StudentController  {
 
     @PostMapping("student/view/{studentId}/editStudent/{studentId}")
         public String editStudent(@PathVariable int studentId, @ModelAttribute @Valid Student student, Model model){
-
-
-        Student studentDB = studentRepository.findById(studentId).orElse(null);
-
-        System.out.println(student.getId());
-        System.out.println(studentDB);
-        System.out.println(student.getName());
-
+        Student studentDB = studentRepository.findById(studentId).orElse(null);;
         studentDB.setName(student.getName());
         studentDB = studentRepository.save(studentDB);
         return "redirect:/student/view/{studentId}";
     }
-
-//    @PostMapping("student/view/{studentId}/editStudent/{studentId}")
-//    public String processEditStudentForm(@ModelAttribute @Valid Student updatedStudent, @PathVariable int studentId,
-//                                        Errors errors, Model model) {
-//        Optional<Student> oldStudent = studentRepository.findById(studentId);
-//        oldStudent.orElseThrow(null).setName(updatedStudent.getName());
-//
-//        System.out.println(oldStudent);
-//        System.out.println(updatedStudent.getName());
-//        return "redirect:/student/view/{studentId}";
-//    }
 }
 
 
