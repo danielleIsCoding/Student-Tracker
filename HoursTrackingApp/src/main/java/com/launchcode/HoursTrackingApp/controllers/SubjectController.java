@@ -36,9 +36,8 @@ public class SubjectController {
     @PostMapping("addSubjects")
     public String processAddSubjectForm(@ModelAttribute @Valid Subject newSubject, @PathVariable int studentId,
                                         Errors errors, Model model) {
-
         Optional<Student> newStudentId = studentRepository.findById(studentId);
-        newSubject.setStudent((newStudentId.get()));
+        newSubject.setStudents((newStudentId.get()));
         model.addAttribute(subjectRepository.save(newSubject));
 
         return "redirect:/student/view/{studentId} ";

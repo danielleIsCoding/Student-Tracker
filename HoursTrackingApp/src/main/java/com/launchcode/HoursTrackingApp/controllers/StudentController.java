@@ -56,7 +56,6 @@ public class StudentController  {
         if (errors.hasErrors()) {
             return "student/add";
         }
-
         HttpSession session = request.getSession();
         Optional<User> user = Optional.ofNullable(authenticationController.getUserFromSession(session));
         newStudent.setUser((user.get()));
@@ -88,6 +87,38 @@ public class StudentController  {
         studentRepository.deleteById(studentId); ;
         return "redirect:/student/index";
     }
+
+    @GetMapping("student/view/{studentId}/editStudent/{studentId}")
+        public String editStudentForm(@PathVariable int studentId, Model model ) {
+        model.addAttribute("student", studentRepository.findById(studentId));
+        return "student/editStudent";
+    }
+
+    @PostMapping("student/view/{studentId}/editStudent/{studentId}")
+        public String editStudent(@PathVariable int studentId, @ModelAttribute @Valid Student student, Model model){
+
+
+        Student studentDB = studentRepository.findById(studentId).orElse(null);
+
+        System.out.println(student.getId());
+        System.out.println(studentDB);
+        System.out.println(student.getName());
+
+        studentDB.setName(student.getName());
+        studentDB = studentRepository.save(studentDB);
+        return "redirect:/student/view/{studentId}";
+    }
+
+//    @PostMapping("student/view/{studentId}/editStudent/{studentId}")
+//    public String processEditStudentForm(@ModelAttribute @Valid Student updatedStudent, @PathVariable int studentId,
+//                                        Errors errors, Model model) {
+//        Optional<Student> oldStudent = studentRepository.findById(studentId);
+//        oldStudent.orElseThrow(null).setName(updatedStudent.getName());
+//
+//        System.out.println(oldStudent);
+//        System.out.println(updatedStudent.getName());
+//        return "redirect:/student/view/{studentId}";
+//    }
 }
 
 

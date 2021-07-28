@@ -4,11 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="11986d36-b5f6-4455-9595-d8c7582a140c" name="Default Changelist" comment="delete button added to subject view">
+    <list default="true" id="11986d36-b5f6-4455-9595-d8c7582a140c" name="Default Changelist" comment="added logout button on student/index page">
+      <change afterPath="$PROJECT_DIR$/HoursTrackingApp/src/main/resources/templates/student/editStudent.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HoursTrackingApp/src/main/java/com/launchcode/HoursTrackingApp/controllers/StudentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/HoursTrackingApp/src/main/java/com/launchcode/HoursTrackingApp/controllers/StudentController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HoursTrackingApp/src/main/java/com/launchcode/HoursTrackingApp/controllers/SubjectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/HoursTrackingApp/src/main/java/com/launchcode/HoursTrackingApp/controllers/SubjectController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HoursTrackingApp/src/main/resources/templates/student/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/HoursTrackingApp/src/main/resources/templates/student/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HoursTrackingApp/src/main/java/com/launchcode/HoursTrackingApp/domain/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/HoursTrackingApp/src/main/java/com/launchcode/HoursTrackingApp/domain/Student.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HoursTrackingApp/src/main/java/com/launchcode/HoursTrackingApp/domain/Subject.java" beforeDir="false" afterPath="$PROJECT_DIR$/HoursTrackingApp/src/main/java/com/launchcode/HoursTrackingApp/domain/Subject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HoursTrackingApp/src/main/resources/templates/student/add.html" beforeDir="false" afterPath="$PROJECT_DIR$/HoursTrackingApp/src/main/resources/templates/student/add.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HoursTrackingApp/src/main/resources/templates/student/addSubjects.html" beforeDir="false" afterPath="$PROJECT_DIR$/HoursTrackingApp/src/main/resources/templates/student/addSubjects.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HoursTrackingApp/src/main/resources/templates/student/subjects.html" beforeDir="false" afterPath="$PROJECT_DIR$/HoursTrackingApp/src/main/resources/templates/student/subjects.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HoursTrackingApp/src/main/resources/templates/student/view.html" beforeDir="false" afterPath="$PROJECT_DIR$/HoursTrackingApp/src/main/resources/templates/student/view.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -59,8 +64,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Thymeleaf" />
         <option value="Class" />
+        <option value="Thymeleaf" />
       </list>
     </option>
   </component>
@@ -193,7 +198,14 @@
       <option name="project" value="LOCAL" />
       <updated>1627270818339</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="added logout button on student/index page">
+      <created>1627350699628</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1627350699628</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -228,6 +240,7 @@
     <MESSAGE value="user_id is now in student table in database" />
     <MESSAGE value="able to click subjects and go to new view" />
     <MESSAGE value="delete button added to subject view" />
-    <option name="LAST_COMMIT_MESSAGE" value="delete button added to subject view" />
+    <MESSAGE value="added logout button on student/index page" />
+    <option name="LAST_COMMIT_MESSAGE" value="added logout button on student/index page" />
   </component>
 </project>

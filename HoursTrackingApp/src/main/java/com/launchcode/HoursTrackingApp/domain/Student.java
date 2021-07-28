@@ -28,8 +28,9 @@ public class Student {
         return name;
     }
 
-    public void setName(String name) {
+    public String setName(String name) {
         this.name = name;
+        return name;
     }
 
     @ManyToOne
@@ -41,7 +42,7 @@ public class Student {
         this.user = user;
     }
 
-    @OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY, mappedBy = "student")
+    @OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY, mappedBy = "students")
     public Set<Subject> getSubjects() {
         return subjects;
     }

@@ -35,7 +35,7 @@ public class Subject {
         this.name = name;
     }
 
-//    @Column(name = "start_date")
+    //    @Column(name = "start_date")
     public Date getStartDate() {
         return startDate;
     }
@@ -53,15 +53,6 @@ public class Subject {
         this.endDate = endDate;
     }
 
-    @ManyToOne
-    public Student getStudent() {
-        return students;
-    }
-
-    public void setStudent(Student students) {
-        this.students = students;
-    }
-
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "subjects" )
     public Set<Hours> getHours() {
         return hours;
@@ -69,5 +60,14 @@ public class Subject {
 
     public void setHours(Set<Hours> hours) {
         this.hours = hours;
+    }
+
+    @ManyToOne
+    public Student getStudents() {
+        return students;
+    }
+
+    public void setStudents(Student students) {
+        this.students = students;
     }
 }
