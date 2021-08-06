@@ -39,13 +39,9 @@ public class StudentController  {
         HttpSession session = request.getSession();
         User newUser = (authenticationController.getUserFromSession(session));
         Integer newUserId = newUser.getId();
-        System.out.println(newUser.getId());
-        System.out.println(newUserId);
         model.addAttribute("title", "All Students");
         model.addAttribute("user", studentRepository.findById(newUserId));
         model.addAttribute("student", newUser.getStudent());
-
-
         return "student/index";
     }
 
@@ -94,15 +90,15 @@ public class StudentController  {
         return "redirect:/student/index";
     }
 
-    @GetMapping("student/view/{studentId}/editStudent/{studentId}")
-        public String editStudentForm(@PathVariable int studentId, Model model ) {
+    @RequestMapping("student/view/{studentId}/editStudent/{studentId}")
+        public String editSubjectForm(@PathVariable int studentId, Model model ) {
         model.addAttribute("student", studentRepository.findById(studentId));
         return "student/editStudent";
     }
 
     @PostMapping("student/view/{studentId}/editStudent/{studentId}")
         public String editStudent(@PathVariable int studentId, @ModelAttribute @Valid Student student, Model model){
-        Student studentDB = studentRepository.findById(studentId).orElse(null);;
+        Student studentDB = studentRepository.findById(studentId).orElse(null);
         studentDB.setName(student.getName());
         studentDB = studentRepository.save(studentDB);
         return "redirect:/student/view/{studentId}";

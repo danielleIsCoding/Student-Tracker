@@ -5,10 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="11986d36-b5f6-4455-9595-d8c7582a140c" name="Default Changelist" comment="edit student name working">
+      <change afterPath="$PROJECT_DIR$/HoursTrackingApp/src/main/resources/templates/student/editSubject.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HoursTrackingApp/src/main/java/com/launchcode/HoursTrackingApp/controllers/StudentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/HoursTrackingApp/src/main/java/com/launchcode/HoursTrackingApp/controllers/StudentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HoursTrackingApp/src/main/java/com/launchcode/HoursTrackingApp/repositories/StudentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/HoursTrackingApp/src/main/java/com/launchcode/HoursTrackingApp/repositories/StudentRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HoursTrackingApp/src/main/resources/templates/student/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/HoursTrackingApp/src/main/resources/templates/student/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HoursTrackingApp/src/main/java/com/launchcode/HoursTrackingApp/controllers/SubjectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/HoursTrackingApp/src/main/java/com/launchcode/HoursTrackingApp/controllers/SubjectController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HoursTrackingApp/src/main/resources/templates/student/subjects.html" beforeDir="false" afterPath="$PROJECT_DIR$/HoursTrackingApp/src/main/resources/templates/student/subjects.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,6 +83,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../java-web-dev-techjobs-persistent" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>

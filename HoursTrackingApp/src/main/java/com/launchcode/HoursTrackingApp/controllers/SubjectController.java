@@ -42,17 +42,34 @@ public class SubjectController {
 
         return "redirect:/student/view/{studentId} ";
     }
-    @RequestMapping("subject/{subjectId}")
-    public String editSubject(Model model, @PathVariable int subjectId){
+//    @RequestMapping("subject/{subjectId}")
+//    public String editSubject(Model model, @PathVariable int subjectId){
+//
+//
+//        model.addAttribute("subject", subjectRepository.findById(subjectId));
+//        return "student/subjects";
+//    }
 
-        return "student/subjects";
+//    @PostMapping("subject/{subjectId}")
+//    public String deleteSubject(@ModelAttribute @Valid Subject subject, Model model, @PathVariable int subjectId){
+//
+//        subjectRepository.deleteById(subjectId);
+//        model.addAttribute("subject", subject.getName());
+//        return "redirect:/student/view/{studentId}";
+//    }
+
+    @RequestMapping("subject/{subjectId}")
+    public String editSubjectForm(@PathVariable int studentId, @PathVariable int subjectId, Model model ) {
+        model.addAttribute("student", studentRepository.findById(studentId));
+        model.addAttribute("subject", subjectRepository.findById(subjectId));
+        return "student/editSubject";
     }
 
     @PostMapping("subject/{subjectId}")
-    public String deleteSubject(@ModelAttribute @Valid Subject subject, Model model, @PathVariable int subjectId){
-
-        subjectRepository.deleteById(subjectId);
-        model.addAttribute("subject", subject.getName());
+    public String editSubject(@PathVariable int subjectId, @ModelAttribute @Valid Subject updatedSubject, Model model){
+        Subject subjectDB = subjectRepository.findById(subjectId).orElse(null);
+        subjectDB.setName(updatedSubject.getName());
+        subjectDB = subjectRepository.save(subjectDB);
         return "redirect:/student/view/{studentId}";
     }
 
