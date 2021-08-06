@@ -11,7 +11,7 @@ public class Hours {
 
     private Integer id;
     private Date date;
-    private Double total;
+    private Float total;
     private String notes;
     private Subject subjects;
 
@@ -35,11 +35,11 @@ public class Hours {
         this.date = date;
     }
 
-    public Double getTotal() {
+    public Float getTotal() {
         return total;
     }
 
-    public void setTotal(Double total) {
+    public void setTotal(Float total) {
         this.total = total;
     }
 

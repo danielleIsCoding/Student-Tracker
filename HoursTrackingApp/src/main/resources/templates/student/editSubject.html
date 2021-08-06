@@ -12,23 +12,27 @@
     <div class="card-header">
         <h2>Edit Subject Below</h2>
     </div>
-    <div class="card-body">
-        <form method = "post">
-            <input type="hidden" field="*{subject.id}" name="subject"/>
+        <div class="card-body">
+            <form method = "post">
+                <input type="hidden" field="*{subject.id}" name="subject"/>
 
+                <!--Edit Subject Name-->
+                <div class="mb-3">
+                    <label class="form-label">Edit Subject Name</label>
+                    <input type="text" class="form-control" th:field="*{subject.name}"/>
+                </div>
 
-            <div class="mb-3">
-                <label class="form-label">Edit Subject Name</label>
-                <input class="form-control" th:field="*{subject.name}"/>
-            </div>
+                <!--Add Amount of hours in the subject. -->
+                <div class="mb-3">
+                    <label class="form-label">Add Total Hours Needed for this subject</label>
+                    <input type="number" step=".01" class="form-control" th:field="*{subject.totalHours}"/>
+                </div>
+                <button type="submit" class="btn btn-primary" value="Edit hours">Save</button>
+            </form>
+            <form th:action ="@{/student/view/{studentId}/subject/{subjectId}/addHours(studentId=${student.id},
+                                subjectId=${subject.id})}"> <button class="btn btn-primary" value="Add Hours">Add Hours</button></form>
 
-            <div class="mb-3">
-                <label class="form-label">Edit Subject Name</label>
-                <input class="form-control" th:field="*{subject.name}"/>
-            </div>
-            <button type="submit" class="btn btn-primary" value="Edit Subject">Save</button>
-        </form>
+        </div>
     </div>
-</div>
 </body>
 </html>

@@ -13,6 +13,7 @@ public class Subject {
     private Date startDate;
     private Date endDate;
     private Student students;
+    private Double totalHours;
     private Set<Hours> hours = new TreeSet<>();
 
     @Id
@@ -69,5 +70,13 @@ public class Subject {
 
     public void setStudents(Student students) {
         this.students = students;
+    }
+
+    public Double getTotalHours() {
+        return totalHours;
+    }
+
+    public void setTotalHours(Double totalHours) {
+        this.totalHours = totalHours;
     }
 }

@@ -60,18 +60,20 @@ public class SubjectController {
 
     @RequestMapping("subject/{subjectId}")
     public String editSubjectForm(@PathVariable int studentId, @PathVariable int subjectId, Model model ) {
-        model.addAttribute("student", studentRepository.findById(studentId));
-        model.addAttribute("subject", subjectRepository.findById(subjectId));
+        model.addAttribute("student", studentRepository.findById(studentId).orElse(null));
+        model.addAttribute("subject", subjectRepository.findById(subjectId).orElse(null));
         return "student/editSubject";
     }
 
     @PostMapping("subject/{subjectId}")
-    public String editSubject(@PathVariable int subjectId, @ModelAttribute @Valid Subject updatedSubject, Model model){
+    public String editSubject(@PathVariable int subjectId, @ModelAttribute @Valid Subject updatedSubject,  Model model){
         Subject subjectDB = subjectRepository.findById(subjectId).orElse(null);
         subjectDB.setName(updatedSubject.getName());
+        subjectDB.setTotalHours(updatedSubject.getTotalHours());
         subjectDB = subjectRepository.save(subjectDB);
         return "redirect:/student/view/{studentId}";
     }
+
 
 }
 

@@ -1,6 +1,7 @@
 package com.launchcode.HoursTrackingApp.controllers;
 
 import com.launchcode.HoursTrackingApp.domain.Student;
+import com.launchcode.HoursTrackingApp.domain.Subject;
 import com.launchcode.HoursTrackingApp.domain.User;
 import com.launchcode.HoursTrackingApp.repositories.StudentRepository;
 import com.launchcode.HoursTrackingApp.repositories.SubjectRepository;
@@ -79,8 +80,10 @@ public class StudentController  {
         }
     }
     @RequestMapping("student/view/{studentId}")
-    public String displayAllSubjects(Model model, @PathVariable int studentId){
+    public String displayAllSubjects(Model model, @PathVariable int studentId, Subject subject){
         model.addAttribute("subjects", subjectRepository.findById(studentId));
+        model.addAttribute("subjects", subject.getTotalHours());
+        model.addAttribute("student", studentRepository.findById(studentId));
         return "student/view/{studentId}";
     }
 
@@ -91,8 +94,9 @@ public class StudentController  {
     }
 
     @RequestMapping("student/view/{studentId}/editStudent/{studentId}")
-        public String editSubjectForm(@PathVariable int studentId, Model model ) {
+        public String editSubjectForm(@PathVariable int studentId, @PathVariable int subjectId, Model model ) {
         model.addAttribute("student", studentRepository.findById(studentId));
+        model.addAttribute("subject", subjectRepository.findById(subjectId));
         return "student/editStudent";
     }
 

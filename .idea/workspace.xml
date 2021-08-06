@@ -4,12 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="11986d36-b5f6-4455-9595-d8c7582a140c" name="Default Changelist" comment="edit student name working">
-      <change afterPath="$PROJECT_DIR$/HoursTrackingApp/src/main/resources/templates/student/editSubject.html" afterDir="false" />
+    <list default="true" id="11986d36-b5f6-4455-9595-d8c7582a140c" name="Default Changelist" comment="edit subject working delete subject commented out">
+      <change afterPath="$PROJECT_DIR$/HoursTrackingApp/src/main/java/com/launchcode/HoursTrackingApp/controllers/HoursController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HoursTrackingApp/src/main/resources/templates/student/addHours.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HoursTrackingApp/src/main/java/com/launchcode/HoursTrackingApp/controllers/StudentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/HoursTrackingApp/src/main/java/com/launchcode/HoursTrackingApp/controllers/StudentController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HoursTrackingApp/src/main/java/com/launchcode/HoursTrackingApp/controllers/SubjectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/HoursTrackingApp/src/main/java/com/launchcode/HoursTrackingApp/controllers/SubjectController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HoursTrackingApp/src/main/resources/templates/student/subjects.html" beforeDir="false" afterPath="$PROJECT_DIR$/HoursTrackingApp/src/main/resources/templates/student/subjects.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HoursTrackingApp/src/main/java/com/launchcode/HoursTrackingApp/domain/Hours.java" beforeDir="false" afterPath="$PROJECT_DIR$/HoursTrackingApp/src/main/java/com/launchcode/HoursTrackingApp/domain/Hours.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HoursTrackingApp/src/main/java/com/launchcode/HoursTrackingApp/domain/Subject.java" beforeDir="false" afterPath="$PROJECT_DIR$/HoursTrackingApp/src/main/java/com/launchcode/HoursTrackingApp/domain/Subject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HoursTrackingApp/src/main/resources/templates/student/editSubject.html" beforeDir="false" afterPath="$PROJECT_DIR$/HoursTrackingApp/src/main/resources/templates/student/editSubject.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HoursTrackingApp/src/main/resources/templates/student/view.html" beforeDir="false" afterPath="$PROJECT_DIR$/HoursTrackingApp/src/main/resources/templates/student/view.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,8 +63,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="Thymeleaf" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -208,7 +212,14 @@
       <option name="project" value="LOCAL" />
       <updated>1627501317169</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="edit subject working delete subject commented out">
+      <created>1628210956850</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1628210956850</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -245,6 +256,7 @@
     <MESSAGE value="delete button added to subject view" />
     <MESSAGE value="added logout button on student/index page" />
     <MESSAGE value="edit student name working" />
-    <option name="LAST_COMMIT_MESSAGE" value="edit student name working" />
+    <MESSAGE value="edit subject working delete subject commented out" />
+    <option name="LAST_COMMIT_MESSAGE" value="edit subject working delete subject commented out" />
   </component>
 </project>
