@@ -1,10 +1,44 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Edit Student</title>
+    <script th:replace="fragments/header:: header" >
+
+    </script>
 </head>
 <body>
-hours form go here
+<div class="card">
+    <div class="card-header">
+        <h2>Edit Hours Below</h2>
+    </div>
+    <div class="card-body">
+        <form method = "post">
+            <input type="hidden" field="*{hours.id}" name="hours"/>
+
+            <!--Date Hours were completed-->
+            <div class="mb-3">
+                <label class="form-label">Date Hours Completed</label>
+                <input type="date" step=".01" class="form-control" th:field="*{hours.date}"/>
+            </div>
+
+            <!--Add Amount of hours spent in the subject. -->
+            <div class="mb-3">
+                <label class="form-label">Add Total Hours Completed for this subject</label>
+                <input type="number" step=".01" class="form-control" th:field="*{hours.total}"/>
+            </div>
+
+            <!--What lesson was taught-->
+            <div class="mb-3">
+                <label class="form-label">Lesson Notes</label>
+                <textarea type="text" class="form-control" th:field="*{hours.notes}"/>
+            </div>
+
+            <button type="submit" class="btn btn-primary" value="Edit hours">Save</button>
+        </form>
+
+
+    </div>
+</div>
 </body>
 </html>

@@ -13,7 +13,7 @@
                         <div class="card-body">
                             <div class="list-group list-group-flush"  th:each="subject: ${student.subjects}">
                                 <h4 class="list-group-item list-group-item-action"><a th:href="@{/student/view/{studentId}/subject/{subjectId}(studentId=${student.id},
-                                subjectId=${subject.id})}"th:text="${subject.name}"> </a> </h4> Total Hours Needed / Total Hours Completed <p th:text="${subject.totalHours}"></p>
+                                subjectId=${subject.id})}"th:text="${subject.name}"> </a> Total Hours Needed <span th:text="${subject.totalHours}"></span></h4>
                             </div>
                         </div>
                     </div>

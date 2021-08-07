@@ -94,9 +94,9 @@ public class StudentController  {
     }
 
     @RequestMapping("student/view/{studentId}/editStudent/{studentId}")
-        public String editSubjectForm(@PathVariable int studentId, @PathVariable int subjectId, Model model ) {
+        public String editSubjectForm(@PathVariable int studentId, Model model ) {
         model.addAttribute("student", studentRepository.findById(studentId));
-        model.addAttribute("subject", subjectRepository.findById(subjectId));
+
         return "student/editStudent";
     }
 

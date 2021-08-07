@@ -1,5 +1,7 @@
 package com.launchcode.HoursTrackingApp.domain;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -10,12 +12,21 @@ import java.util.Date;
 public class Hours {
 
     private Integer id;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date date;
     private Float total;
     private String notes;
     private Subject subjects;
 
+
     public Hours (){}
+
+    public Hours(Integer id, Date date, Float total, String notes) {
+        this.id = id;
+        this.date = date;
+        this.total = total;
+        this.notes = notes;
+    }
 
     @Id
     @GeneratedValue
@@ -59,4 +70,5 @@ public class Hours {
     public void setSubjects(Subject subjects) {
         this.subjects = subjects;
     }
+
 }
