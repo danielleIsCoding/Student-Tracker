@@ -24,13 +24,13 @@ public class SubjectController {
 
     @RequestMapping("addSubjects")
     public String addForm (){
-        return "student/addSubjects";
+        return "subjects/addSubjects";
     }
 
     @GetMapping("addSubjects")
     public String displayAddSubjectForm(Model model) {
         model.addAttribute(new Subject());
-        return "student/addSubjects";
+        return "subjects/addSubjects";
     }
 
     @PostMapping("addSubjects")
@@ -42,6 +42,25 @@ public class SubjectController {
 
         return "redirect:/student/view/{studentId} ";
     }
+
+    @RequestMapping("subject/{subjectId}/editSubject")
+    public String editSubjectForm(@PathVariable int studentId, @PathVariable int subjectId, Model model ) {
+        model.addAttribute("student", studentRepository.findById(studentId).orElse(null));
+        model.addAttribute("subject", subjectRepository.findById(subjectId).orElse(null));
+        return "subjects/editSubject";
+    }
+
+    @PostMapping("subject/{subjectId}/editSubject")
+    public String editSubject(@PathVariable int subjectId, @ModelAttribute @Valid Subject updatedSubject,  Model model){
+        Subject subjectDB = subjectRepository.findById(subjectId).orElse(null);
+        subjectDB.setName(updatedSubject.getName());
+        subjectDB.setTotalHours(updatedSubject.getTotalHours());
+        subjectDB = subjectRepository.save(subjectDB);
+        return "redirect:/student/view/{studentId}";
+    }
+
+}
+
 //    @RequestMapping("subject/{subjectId}")
 //    public String editSubject(Model model, @PathVariable int subjectId){
 //
@@ -57,24 +76,4 @@ public class SubjectController {
 //        model.addAttribute("subject", subject.getName());
 //        return "redirect:/student/view/{studentId}";
 //    }
-
-    @RequestMapping("subject/{subjectId}")
-    public String editSubjectForm(@PathVariable int studentId, @PathVariable int subjectId, Model model ) {
-        model.addAttribute("student", studentRepository.findById(studentId).orElse(null));
-        model.addAttribute("subject", subjectRepository.findById(subjectId).orElse(null));
-        return "student/editSubject";
-    }
-
-    @PostMapping("subject/{subjectId}")
-    public String editSubject(@PathVariable int subjectId, @ModelAttribute @Valid Subject updatedSubject,  Model model){
-        Subject subjectDB = subjectRepository.findById(subjectId).orElse(null);
-        subjectDB.setName(updatedSubject.getName());
-        subjectDB.setTotalHours(updatedSubject.getTotalHours());
-        subjectDB = subjectRepository.save(subjectDB);
-        return "redirect:/student/view/{studentId}";
-    }
-
-
-}
-
 

@@ -4,15 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="11986d36-b5f6-4455-9595-d8c7582a140c" name="Default Changelist" comment="added the hours view and controller">
-      <change afterPath="$PROJECT_DIR$/HoursTrackingApp/src/main/java/com/launchcode/HoursTrackingApp/repositories/HoursRepository.java" afterDir="false" />
+    <list default="true" id="11986d36-b5f6-4455-9595-d8c7582a140c" name="Default Changelist" comment="hours save and moving to the view">
+      <change afterPath="$PROJECT_DIR$/HoursTrackingApp/src/main/resources/templates/hours/editHours.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HoursTrackingApp/src/main/resources/templates/hours/hoursView.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HoursTrackingApp/src/main/java/com/launchcode/HoursTrackingApp/controllers/HoursController.java" beforeDir="false" afterPath="$PROJECT_DIR$/HoursTrackingApp/src/main/java/com/launchcode/HoursTrackingApp/controllers/HoursController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HoursTrackingApp/src/main/java/com/launchcode/HoursTrackingApp/controllers/StudentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/HoursTrackingApp/src/main/java/com/launchcode/HoursTrackingApp/controllers/StudentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HoursTrackingApp/src/main/java/com/launchcode/HoursTrackingApp/controllers/SubjectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/HoursTrackingApp/src/main/java/com/launchcode/HoursTrackingApp/controllers/SubjectController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HoursTrackingApp/src/main/java/com/launchcode/HoursTrackingApp/domain/Hours.java" beforeDir="false" afterPath="$PROJECT_DIR$/HoursTrackingApp/src/main/java/com/launchcode/HoursTrackingApp/domain/Hours.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HoursTrackingApp/src/main/resources/templates/fragments/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/HoursTrackingApp/src/main/resources/templates/fragments/header.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HoursTrackingApp/src/main/resources/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/HoursTrackingApp/src/main/resources/templates/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HoursTrackingApp/src/main/resources/templates/student/addHours.html" beforeDir="false" afterPath="$PROJECT_DIR$/HoursTrackingApp/src/main/resources/templates/student/addHours.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HoursTrackingApp/src/main/resources/templates/student/addHours.html" beforeDir="false" afterPath="$PROJECT_DIR$/HoursTrackingApp/src/main/resources/templates/hours/addHours.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HoursTrackingApp/src/main/resources/templates/student/addSubjects.html" beforeDir="false" afterPath="$PROJECT_DIR$/HoursTrackingApp/src/main/resources/templates/subjects/addSubjects.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HoursTrackingApp/src/main/resources/templates/student/editSubject.html" beforeDir="false" afterPath="$PROJECT_DIR$/HoursTrackingApp/src/main/resources/templates/subjects/editSubject.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HoursTrackingApp/src/main/resources/templates/student/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/HoursTrackingApp/src/main/resources/templates/student/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HoursTrackingApp/src/main/resources/templates/student/subjects.html" beforeDir="false" afterPath="$PROJECT_DIR$/HoursTrackingApp/src/main/resources/templates/subjects/subjects.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HoursTrackingApp/src/main/resources/templates/student/view.html" beforeDir="false" afterPath="$PROJECT_DIR$/HoursTrackingApp/src/main/resources/templates/student/view.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -62,9 +66,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Thymeleaf" />
         <option value="Class" />
         <option value="Interface" />
+        <option value="Kotlin Worksheet" />
+        <option value="Thymeleaf" />
       </list>
     </option>
   </component>
@@ -79,6 +84,22 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
+  <component name="JpbToolWindowState">
+    <option name="myId2FirstActivated">
+      <map>
+        <entry key="JPA Inspector" value="true" />
+        <entry key="JPA Palette" value="true" />
+        <entry key="JPA Structure" value="true" />
+      </map>
+    </option>
+    <option name="myId2Visible">
+      <map>
+        <entry key="JPA Inspector" value="false" />
+        <entry key="JPA Palette" value="false" />
+        <entry key="JPA Structure" value="false" />
+      </map>
+    </option>
+  </component>
   <component name="ProjectId" id="1vHuMNQgy4ixGOzpLpKN2YSFyI5" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -89,7 +110,14 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../java-web-dev-techjobs-persistent" />
+    <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\ddmmt\IdeaProjects\hourstracker-oneuser\HoursTrackingApp\src\main\resources\templates\Hours" />
+      <recent name="C:\Users\ddmmt\IdeaProjects\hourstracker-oneuser\HoursTrackingApp\src\main\resources\templates\Subjects" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="HoursTrackingApp [bootRun]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
@@ -226,7 +254,14 @@
       <option name="project" value="LOCAL" />
       <updated>1628225942283</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="hours save and moving to the view">
+      <created>1628379813606</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1628379813606</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -265,6 +300,7 @@
     <MESSAGE value="edit student name working" />
     <MESSAGE value="edit subject working delete subject commented out" />
     <MESSAGE value="added the hours view and controller" />
-    <option name="LAST_COMMIT_MESSAGE" value="added the hours view and controller" />
+    <MESSAGE value="hours save and moving to the view" />
+    <option name="LAST_COMMIT_MESSAGE" value="hours save and moving to the view" />
   </component>
 </project>

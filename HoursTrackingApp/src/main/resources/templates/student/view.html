@@ -7,18 +7,19 @@
         </script>
     </head>
     <body>
-            <div class="card">
-                <div><h2 class="card-header" th:text="${'Student: ' + student.name}">Default Title</h2>
-                    <div class="row">
-                        <div class="card-body">
-                            <div class="list-group list-group-flush"  th:each="subject: ${student.subjects}">
-                                <h4 class="list-group-item list-group-item-action"><a th:href="@{/student/view/{studentId}/subject/{subjectId}(studentId=${student.id},
-                                subjectId=${subject.id})}"th:text="${subject.name}"> </a> Total Hours Needed <span th:text="${subject.totalHours}"></span></h4>
-                            </div>
-                        </div>
-                    </div>
+        <div class="card">
+            <div class="row"><h2 class="card-header" th:text="${'Student: ' + student.name}">Default Title</h2></div>
+                    <div class="list-group list-group-flush"  th:each="subject: ${student.subjects}">
+                            <a th:href="@{/student/view/{studentId}/subject/{subjectId}(studentId=${student.id},
+                                subjectId=${subject.id})}" class="list-group-item list-group-item-action">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h6 class="mb-1" th:text="${subject.name}">Subject Name</h6>
+                                    </div>
+                                    <p th:text="${'Total Hours Needed: ' + subject.totalHours}">3 days ago</p>
+                            </a>
                 </div>
             </div>
+        </div>
             <form th:action ="@{/student/view/{studentId}/editStudent/{studentId}(studentId=${student.id})}" ><button class="btn btn-primary" value="Edit">Edit Student</button></form>
             <form th:action ="@{/student/view/{studentId}/addSubjects(studentId=${student.id})}"> <button class="btn btn-primary" value="Add Subjects">Add Subjects</button></form>
             <form method = "post"><button type="submit" class="btn btn-primary" value="Delete">Delete Student</button></form>

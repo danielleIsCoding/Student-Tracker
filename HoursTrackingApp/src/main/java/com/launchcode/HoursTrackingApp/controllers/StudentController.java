@@ -3,6 +3,7 @@ package com.launchcode.HoursTrackingApp.controllers;
 import com.launchcode.HoursTrackingApp.domain.Student;
 import com.launchcode.HoursTrackingApp.domain.Subject;
 import com.launchcode.HoursTrackingApp.domain.User;
+import com.launchcode.HoursTrackingApp.repositories.HoursRepository;
 import com.launchcode.HoursTrackingApp.repositories.StudentRepository;
 import com.launchcode.HoursTrackingApp.repositories.SubjectRepository;
 import com.launchcode.HoursTrackingApp.repositories.UserRepository;
@@ -32,6 +33,9 @@ public class StudentController  {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private HoursRepository hoursRepository;
 
     //Displays all students in database
     @RequestMapping("student/index")
@@ -86,6 +90,7 @@ public class StudentController  {
         model.addAttribute("student", studentRepository.findById(studentId));
         return "student/view/{studentId}";
     }
+
 
     @PostMapping("student/view/{studentId}")
     public String deleteStudent( @PathVariable int studentId){

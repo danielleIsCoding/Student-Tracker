@@ -12,6 +12,7 @@ import java.util.Date;
 public class Hours {
 
     private Integer id;
+
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date date;
     private Float total;
@@ -20,13 +21,6 @@ public class Hours {
 
 
     public Hours (){}
-
-    public Hours(Integer id, Date date, Float total, String notes) {
-        this.id = id;
-        this.date = date;
-        this.total = total;
-        this.notes = notes;
-    }
 
     @Id
     @GeneratedValue
