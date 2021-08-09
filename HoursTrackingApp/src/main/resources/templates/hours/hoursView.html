@@ -29,6 +29,8 @@
             </div>
                         <a class="btn btn-primary" th:href="@{/student/view/{studentId}/subject/{subjectId}/hours/addHours(studentId=${student.id},
                                             subjectId=${subject.id})}">Add Entry</a>
+            <a class="btn btn-primary" th:href="@{/student/view/{studentId}/subject/{subjectId}/export-subject(studentId=${student.id},
+                                            subjectId=${subject.id})}">Download</a>
         </div>
     </div>
 </div>

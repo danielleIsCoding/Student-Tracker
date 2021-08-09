@@ -2,10 +2,7 @@ package com.launchcode.HoursTrackingApp.domain;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
@@ -18,7 +15,6 @@ public class Hours {
     private Float total;
     private String notes;
     private Subject subjects;
-
 
     public Hours (){}
 
@@ -56,7 +52,7 @@ public class Hours {
         this.notes = notes;
     }
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     public Subject getSubjects() {
         return subjects;
     }

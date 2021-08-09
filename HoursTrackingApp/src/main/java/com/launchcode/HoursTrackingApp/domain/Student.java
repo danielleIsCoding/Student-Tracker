@@ -33,7 +33,7 @@ public class Student {
         return name;
     }
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     public User getUser() {
         return user;
     }
@@ -42,7 +42,7 @@ public class Student {
         this.user = user;
     }
 
-    @OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY, mappedBy = "students")
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "students")
     public Set<Subject> getSubjects() {
         return subjects;
     }

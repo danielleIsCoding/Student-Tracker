@@ -8,4 +8,6 @@ import org.springframework.stereotype.Repository;
 public interface SubjectRepository extends CrudRepository<Subject, Integer> {
 
 
+
+
 }

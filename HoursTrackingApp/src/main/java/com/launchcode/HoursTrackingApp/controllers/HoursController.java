@@ -73,5 +73,4 @@ public class HoursController {
         return "redirect:/student/view/{studentId}/subject/{subjectId}";
     }
 
-
 }
