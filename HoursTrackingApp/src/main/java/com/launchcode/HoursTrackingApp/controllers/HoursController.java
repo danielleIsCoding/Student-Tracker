@@ -15,7 +15,7 @@ import java.util.Optional;
 
 
 @Controller
-@RequestMapping("student/view/{studentId}/subject/{subjectId}")
+@RequestMapping("student/view/{studentId}/subject/{subjectId}/hours")
 public class HoursController {
 
     @Autowired
@@ -30,11 +30,13 @@ public class HoursController {
     @GetMapping("")
     public String displayAllHours(Model model, @PathVariable int subjectId, @PathVariable int studentId){
 
-        Hours hours = hoursRepository.findById(subjectId).orElse(null);
+        Optional<Hours> hours = hoursRepository.findById(subjectId);
+
         model.addAttribute("hours", hours);
         model.addAttribute("subject", subjectRepository.findById(subjectId).orElse(null));
         model.addAttribute("student", studentRepository.findById(studentId).orElse(null));
         return "hours/hoursView";
+
     }
 
     @GetMapping("addHours")
@@ -63,7 +65,7 @@ public class HoursController {
 
     @PostMapping("editHours/{hoursId}")
     public String editHours(@PathVariable int hoursId, @ModelAttribute @Valid Hours updatedHours,  Model model){
-        Hours hoursDB = hoursRepository.findById(hoursId).orElse(null);
+        Hours hoursDB = hoursRepository.findById(hoursId).orElseThrow();
         hoursDB.setDate(updatedHours.getDate());
         hoursDB.setTotal(updatedHours.getTotal());
         hoursDB.setNotes(updatedHours.getNotes());

@@ -1,7 +1,6 @@
 package com.launchcode.HoursTrackingApp.controllers;
 
 import com.launchcode.HoursTrackingApp.domain.Student;
-import com.launchcode.HoursTrackingApp.domain.Subject;
 import com.launchcode.HoursTrackingApp.domain.User;
 import com.launchcode.HoursTrackingApp.repositories.HoursRepository;
 import com.launchcode.HoursTrackingApp.repositories.StudentRepository;
@@ -82,13 +81,6 @@ public class StudentController  {
         } else {
             return "redirect:../";
         }
-    }
-    @RequestMapping("student/view/{studentId}")
-    public String displayAllSubjects(Model model, @PathVariable int studentId, Subject subject){
-        model.addAttribute("subjects", subjectRepository.findById(studentId));
-        model.addAttribute("subjects", subject.getTotalHours());
-        model.addAttribute("student", studentRepository.findById(studentId));
-        return "student/view/{studentId}";
     }
 
 

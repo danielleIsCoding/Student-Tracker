@@ -21,18 +21,18 @@
                             Date:<p th:text="${hours.date}"></p>
                             Work Done:<p th:text="${hours.notes}"></p>
                             Time Completed:<p th:text="${hours.total}">Java Types</p>
-                            <a class="btn btn-primary" th:href="@{/student/view/{studentId}/subject/{subjectId}/editHours/{hoursId}(studentId=${student.id},
+                            <a class="btn btn-primary" th:href="@{/student/view/{studentId}/subject/{subjectId}/hours/editHours/{hoursId}(studentId=${student.id},
                                             subjectId=${subject.id}, hoursId=${hours.id})}">Edit Entry</a>
                         </div>
                     </div>
                 </div>
             </div>
-                        <a class="btn btn-primary" th:href="@{/student/view/{studentId}/subject/{subjectId}/addHours(studentId=${student.id},
+                        <a class="btn btn-primary" th:href="@{/student/view/{studentId}/subject/{subjectId}/hours/addHours(studentId=${student.id},
                                             subjectId=${subject.id})}">Add Entry</a>
         </div>
     </div>
 </div>
-Hours</button></form>-->
+
 
 </body>
 </html>

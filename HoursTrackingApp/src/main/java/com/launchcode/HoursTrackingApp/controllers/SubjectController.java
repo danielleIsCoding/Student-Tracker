@@ -59,6 +59,13 @@ public class SubjectController {
         return "redirect:/student/view/{studentId}";
     }
 
+    @RequestMapping("student/view/{studentId}")
+    public String displayAllSubjects(Model model, @PathVariable int studentId, Subject subject){
+        model.addAttribute("subjects", subjectRepository.findById(studentId));
+        model.addAttribute("subjects", subject.getTotalHours());
+        model.addAttribute("student", studentRepository.findById(studentId));
+        return "student/view/{studentId}";
+    }
 }
 
 //    @RequestMapping("subject/{subjectId}")
