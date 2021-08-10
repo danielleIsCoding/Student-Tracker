@@ -4,8 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="11986d36-b5f6-4455-9595-d8c7582a140c" name="Default Changelist" comment="MVP completed. Everything is working properly.">
+    <list default="true" id="11986d36-b5f6-4455-9595-d8c7582a140c" name="Default Changelist" comment="MVP completed. Everything is working properly. initial commit">
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HoursTrackingApp/src/main/java/com/launchcode/HoursTrackingApp/controllers/HoursController.java" beforeDir="false" afterPath="$PROJECT_DIR$/HoursTrackingApp/src/main/java/com/launchcode/HoursTrackingApp/controllers/HoursController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HoursTrackingApp/src/main/resources/templates/hours/editHours.html" beforeDir="false" afterPath="$PROJECT_DIR$/HoursTrackingApp/src/main/resources/templates/hours/editHours.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +91,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -125,6 +128,9 @@
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration>C:\Users\ddmmt\AppData\Roaming\Subversion</configuration>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="11986d36-b5f6-4455-9595-d8c7582a140c" name="Default Changelist" comment="" />
@@ -252,7 +258,14 @@
       <option name="project" value="LOCAL" />
       <updated>1628570857396</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="MVP completed. Everything is working properly.">
+      <created>1628571562685</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1628571562685</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
