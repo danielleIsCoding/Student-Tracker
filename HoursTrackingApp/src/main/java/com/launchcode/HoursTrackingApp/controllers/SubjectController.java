@@ -4,17 +4,12 @@ import com.launchcode.HoursTrackingApp.domain.Student;
 import com.launchcode.HoursTrackingApp.domain.Subject;
 import com.launchcode.HoursTrackingApp.repositories.StudentRepository;
 import com.launchcode.HoursTrackingApp.repositories.SubjectRepository;
-import com.opencsv.CSVWriter;
-import com.opencsv.bean.StatefulBeanToCsv;
-import com.opencsv.bean.StatefulBeanToCsvBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 import java.util.Optional;
 
@@ -28,7 +23,7 @@ public class SubjectController {
     private SubjectRepository subjectRepository;
 
     @RequestMapping("addSubjects")
-    public String addForm() {
+    public String addForm (){
         return "subjects/addSubjects";
     }
 
@@ -49,14 +44,14 @@ public class SubjectController {
     }
 
     @RequestMapping("subject/{subjectId}/editSubject")
-    public String editSubjectForm(@PathVariable int studentId, @PathVariable int subjectId, Model model) {
+    public String editSubjectForm(@PathVariable int studentId, @PathVariable int subjectId, Model model ) {
         model.addAttribute("student", studentRepository.findById(studentId).orElse(null));
         model.addAttribute("subject", subjectRepository.findById(subjectId).orElse(null));
         return "subjects/editSubject";
     }
 
     @PostMapping("subject/{subjectId}/editSubject")
-    public String editSubject(@PathVariable int subjectId, @ModelAttribute @Valid Subject updatedSubject, Model model) {
+    public String editSubject(@PathVariable int subjectId, @ModelAttribute @Valid Subject updatedSubject,  Model model){
         Subject subjectDB = subjectRepository.findById(subjectId).orElse(null);
         subjectDB.setName(updatedSubject.getName());
         subjectDB.setTotalHours(updatedSubject.getTotalHours());
@@ -64,41 +59,21 @@ public class SubjectController {
         return "redirect:/student/view/{studentId}";
     }
 
-    @RequestMapping("student/view/{studentId}")
-    public String displayAllSubjects(Model model, @PathVariable int studentId, Subject subject) {
-        model.addAttribute("subjects", subjectRepository.findById(studentId));
-        model.addAttribute("subjects", subject.getTotalHours());
-        model.addAttribute("student", studentRepository.findById(studentId));
-        return "student/view/{studentId}";
-    }
-
-    @GetMapping("subject/{subjectId}/export-subject")
-    public void exportCSV(HttpServletResponse response, @PathVariable int subjectId) throws Exception {
-
-        //set file name and content type
-        String filename = "subjects.csv";
-
-        response.setContentType("text/csv");
-        response.setHeader(HttpHeaders.CONTENT_DISPOSITION,
-                "attachment; filename=\"" + filename + "\"");
-
-        //create a csv writer
-        StatefulBeanToCsv<Subject> writer = new StatefulBeanToCsvBuilder<Subject>(response.getWriter())
-                .withQuotechar(CSVWriter.NO_QUOTE_CHARACTER)
-                .withSeparator(CSVWriter.DEFAULT_SEPARATOR)
-                .withOrderedResults(false)
-                .build();
-
-        //write all Students to csv file
-        writer.write(subjectRepository.findById(subjectId).orElse(null));
-    }
-
-    @DeleteMapping("subject/{subjectId}/editSubject")
-    public String deleteSubject( @PathVariable int subjectId) {
-
-       subjectRepository.deleteById(subjectId);
-
-        return "redirect:/student/view/{studentId}";
-    }
 }
+
+//    @RequestMapping("subject/{subjectId}")
+//    public String editSubject(Model model, @PathVariable int subjectId){
+//
+//
+//        model.addAttribute("subject", subjectRepository.findById(subjectId));
+//        return "student/subjects";
+//    }
+
+//    @PostMapping("subject/{subjectId}")
+//    public String deleteSubject(@ModelAttribute @Valid Subject subject, Model model, @PathVariable int subjectId){
+//
+//        subjectRepository.deleteById(subjectId);
+//        model.addAttribute("subject", subject.getName());
+//        return "redirect:/student/view/{studentId}";
+//    }
 
