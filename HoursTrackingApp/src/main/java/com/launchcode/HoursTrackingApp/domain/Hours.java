@@ -52,7 +52,7 @@ public class Hours {
         this.notes = notes;
     }
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.PERSIST)
     public Subject getSubjects() {
         return subjects;
     }

@@ -1,44 +1,48 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 
-<head>
-    <title>Edit Student</title>
-    <script th:replace="fragments/header:: header" >
+    <head>
+        <title>Edit Student</title>
+        <script th:replace="fragments/header:: header" >
 
-    </script>
-</head>
-<body>
-<div class="card">
-    <div class="card-header">
+        </script>
+    </head>
+    <body>
+        <div class="card">
+            <div ><h2 class="card-header" th:text="${'Student: ' + student.name }">Default Title</h2>
 
-    </div>
-    <div class="card-body">
-        <form method = "post">
-            <input type="hidden" field="*{hours.id}" name="hours"/>
-
-            <!--Date Hours were completed-->
-            <div class="mb-3">
-                <label class="form-label">Date Hours Completed</label>
-                <input type="date" step=".01" class="form-control" th:field="*{hours.date}"/>
             </div>
+            <div class="card-body">
+                <div class="card">
+                <div ><h5 class="card-header" th:text="${'Subject: ' + subject.name }">Default Title</h5>
 
-            <!--Add Amount of hours spent in the subject. -->
-            <div class="mb-3">
-                <label class="form-label">Add Total Hours Completed for this subject</label>
-                <input type="number" step=".01" class="form-control" th:field="*{hours.total}"/>
+                </div>
+                <div class="card-body">
+                <form method = "post">
+                    <input type="hidden" field="*{hours.id}" name="hours"/>
+
+                    <!--Date Hours were completed-->
+                    <div class="mb-3">
+                        <label class="form-label">Date Time was Completed</label>
+                        <input type="date" step=".01" class="form-control" th:field="*{hours.date}"/>
+                    </div>
+
+                    <!--Add Amount of hours spent in the subject. -->
+                    <div class="mb-3">
+                        <label class="form-label" th:text="${'Add Total Time Completed for ' + subject.name}"> this subject</label>
+                        <input type="number" step=".01" class="form-control" th:field="*{hours.total}"/>
+                    </div>
+
+                    <!--What lesson was taught-->
+                    <div class="mb-3">
+                        <label class="form-label">Lesson Notes</label>
+                        <textarea type="text" class="form-control" th:field="*{hours.notes}"/>
+                    </div>
+                    <button type="submit" class="btn btn-primary" value="Edit hours">Save</button>
+                </form>
+                    </div>
+                </div>
             </div>
-
-            <!--What lesson was taught-->
-            <div class="mb-3">
-                <label class="form-label">Lesson Notes</label>
-                <textarea type="text" class="form-control" th:field="*{hours.notes}"/>
-            </div>
-
-            <button type="submit" class="btn btn-primary" value="Edit hours">Save</button>
-        </form>
-
-
-    </div>
-</div>
-</body>
+        </div>
+    </body>
 </html>

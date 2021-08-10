@@ -30,9 +30,10 @@
                 <button type="submit" class="btn btn-primary" value="Edit hours">Save</button>
             </form>
             <form th:action ="@{/student/view/{studentId}/subject/{subjectId}/addHours(studentId=${student.id},
-                                subjectId=${subject.id})}"> <button class="btn btn-primary" value="Add Hours">Add Hours</button></form>
-                <form method="post"> <button type="submit" class="btn btn-primary" value="Delete">Delete</button>
-                </form>
+                                subjectId=${subject.id})}"> <button class="btn btn-primary" value="Add Hours">Add Hours</button>
+            </form>
+
+
         </div>
     </div>
 </body>

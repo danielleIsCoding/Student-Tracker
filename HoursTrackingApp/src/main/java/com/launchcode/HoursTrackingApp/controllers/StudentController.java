@@ -107,7 +107,7 @@ public class StudentController  {
 
     @PostMapping("student/view/{studentId}/editStudent/{studentId}")
         public String editStudent(@PathVariable int studentId, @ModelAttribute @Valid Student student, Model model){
-        Student studentDB = studentRepository.findById(studentId).orElse(null);
+        Student studentDB = studentRepository.findById(studentId).get();
         studentDB.setName(student.getName());
         studentDB = studentRepository.save(studentDB);
         return "redirect:/student/view/{studentId}";

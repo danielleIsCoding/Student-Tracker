@@ -33,7 +33,7 @@ public class Student {
         return name;
     }
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.PERSIST)
     public User getUser() {
         return user;
     }

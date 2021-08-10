@@ -38,8 +38,10 @@ public class HoursController {
     }
 
     @GetMapping("addHours")
-    public String displayAddHoursForm(Model model) {
+    public String displayAddHoursForm(Model model, @PathVariable int studentId, @PathVariable int subjectId) {
         model.addAttribute(new Hours());
+        model.addAttribute("student", studentRepository.findById(studentId).get());
+        model.addAttribute("subject", subjectRepository.findById(subjectId).get());
         return "hours/addHours";
     }
 
@@ -49,6 +51,7 @@ public class HoursController {
         Optional<Subject> newSubjectId = subjectRepository.findById(subjectId);
         newHours.setSubjects((newSubjectId.get()));
         model.addAttribute(hoursRepository.save(newHours));
+
 
         return "redirect:/student/view/{studentId}/subject/{subjectId}";
     }
