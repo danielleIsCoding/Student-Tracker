@@ -28,7 +28,7 @@ public class HoursController {
     private StudentRepository studentRepository;
 
     @GetMapping("")
-    public String displayAllHours(Model model, @PathVariable int subjectId, @PathVariable int studentId){
+    public String displayAllHours(Model model, @PathVariable int subjectId, @PathVariable int studentId) {
 
         Hours hours = hoursRepository.findById(subjectId).orElse(null);
         model.addAttribute("hours", hours);
@@ -47,32 +47,48 @@ public class HoursController {
 
     @PostMapping("addHours")
     public String processAddHoursForm(@ModelAttribute @Valid Hours newHours,
-                                        @PathVariable int subjectId, Model model) {
+                                      @PathVariable int subjectId, Model model) {
         Optional<Subject> newSubjectId = subjectRepository.findById(subjectId);
         newHours.setSubjects((newSubjectId.get()));
         model.addAttribute(hoursRepository.save(newHours));
 
 
-        return "redirect:/student/view/{studentId}/subject/{subjectId}";
+        return "redirect:/student/view/{studentId}/subject/{subjectId}/";
     }
 
     @GetMapping("editHours/{hoursId}")
-    public String editHoursForm(@PathVariable int studentId, @PathVariable int subjectId, @PathVariable int hoursId, Model model ) {
+    public String editHoursForm(@PathVariable int studentId, @PathVariable int subjectId, @PathVariable int hoursId, Model model) {
         model.addAttribute("student", studentRepository.findById(studentId).orElse(null));
         model.addAttribute("subject", subjectRepository.findById(subjectId).orElse(null));
-        model.addAttribute( "hours", hoursRepository.findById(hoursId).orElse(null));
+        model.addAttribute("hours", hoursRepository.findById(hoursId).orElse(null));
         return "hours/editHours";
     }
 
     @PostMapping("editHours/{hoursId}")
-    public String editHours(@PathVariable int hoursId, @ModelAttribute @Valid Hours updatedHours,  Model model){
+    public String editHours(@PathVariable int hoursId, @ModelAttribute @Valid Hours updatedHours, Model model) {
         Hours hoursDB = hoursRepository.findById(hoursId).orElse(null);
         hoursDB.setDate(updatedHours.getDate());
         hoursDB.setTotal(updatedHours.getTotal());
         hoursDB.setNotes(updatedHours.getNotes());
         hoursDB = hoursRepository.save(hoursDB);
-        return "redirect:/student/view/{studentId}/subject/{subjectId}";
+        return "redirect:/student/view/{studentId}/subject/{subjectId}/";
     }
 
+    @RequestMapping("hours/{hoursId}")
+    public String deleteHoursView(Model model, @PathVariable int subjectId, @PathVariable int studentId, @PathVariable int hoursId){
+        Hours hours = hoursRepository.findById(hoursId).get();
+        model.addAttribute("hours", hours);
+        model.addAttribute("subject", subjectRepository.findById(subjectId).get());
+        model.addAttribute("student", studentRepository.findById(studentId).get());
+        return "hours/timeView";
+    }
 
+    @PostMapping("hours/{hoursId}")
+    public String deleteHours(@PathVariable int hoursId){
+        System.out.println("hello");
+
+        hoursRepository.deleteById(hoursId);
+
+        return "redirect:/student/view/{studentId}/subject/{subjectId}/";
+    }
 }

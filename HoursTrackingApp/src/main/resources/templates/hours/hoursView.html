@@ -1,41 +1,39 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="https://www.thymeleaf.org/">
-<head>
-    <title>Welcome to the Hours Tracker App</title>
-    <script th:replace="fragments/header:: header" >
+    <head>
+        <title>Welcome to the Hours Tracker App</title>
+        <script th:replace="fragments/header:: header" >
 
-    </script>
-</head>
-<body>
-<div class="card">
-    <div><h2 class="card-header" th:text="${'Student: ' + student.name }">Default Title</h2>
-        <div class="row"> <!-- Bread crumbs go here --></div>
-    </div>
-            <!-- here starts hours information -->
-        <div class="card-body">
-            <div class="card">
-                <div class="card-header" ><a class="list-group-item list-group-item-action" th:href="@{/student/view/{studentId}/subject/{subjectId}/editSubject(studentId=${student.id}, subjectId=${subject.id})}" th:text="${'Subject: ' + subject.name }">Subject Name</a></div>
+        </script>
+    </head>
+    <body>
+        <div class="card">
+            <div><h2 class="card-header" th:text="${'Student: ' + student.name }">Default Title</h2>
+                <div class="row"> <!-- Bread crumbs go here --></div>
+            </div>
+                    <!-- here starts hours information -->
                 <div class="card-body">
-                    <div th:each="hours : ${subject.hours}">
-                        <div class="list-group-item list-group-item-action">
-                            Date:<p th:text="${hours.date}"></p>
-                            Work Done:<p th:text="${hours.notes}"></p>
-                            Time Completed:<p th:text="${hours.total}">Java Types</p>
-                            <a class="btn btn-primary" th:href="@{/student/view/{studentId}/subject/{subjectId}/editHours/{hoursId}(studentId=${student.id},
-                                            subjectId=${subject.id}, hoursId=${hours.id})}">Edit Entry</a>
+                    <div class="card">
+                        <div class="card-header" ><a class="list-group-item list-group-item-action" th:href="@{/student/view/{studentId}/subject/{subjectId}/editSubject(studentId=${student.id}, subjectId=${subject.id})}" th:text="${'Subject: ' + subject.name }">Subject Name</a></div>
+                        <div class="card-body">
+                            <div th:each="hours : ${subject.hours}">
+                                <div class="list-group-item list-group-item-action">
+                                    <a class="list-group-item list-group-item-action" th:href="@{/student/view/{studentId}/subject/{subjectId}/hours/{hoursId}
+                                    (studentId=${student.id}, subjectId=${subject.id}, hoursId=${hours.id})}">
+                                    Date:<p th:text="${hours.date}"></p>
+                                    Work Done:<p th:text="${hours.notes}"></p>
+                                    Time Completed:<p th:text="${hours.total}">Java Types</p></a>
+                                </div>
+                            </div>
                         </div>
                     </div>
+                                <a class="btn btn-primary" th:href="@{/student/view/{studentId}/subject/{subjectId}/addHours(studentId=${student.id},
+                                                    subjectId=${subject.id})}">Add Entry</a>
+                    <a class="btn btn-primary" th:href="@{/student/view/{studentId}/subject/{subjectId}/export-subject(studentId=${student.id},
+                                                    subjectId=${subject.id})}">Download</a>
                 </div>
             </div>
-                        <a class="btn btn-primary" th:href="@{/student/view/{studentId}/subject/{subjectId}/addHours(studentId=${student.id},
-                                            subjectId=${subject.id})}">Add Entry</a>
-            <a class="btn btn-primary" th:href="@{/student/view/{studentId}/subject/{subjectId}/export-subject(studentId=${student.id},
-                                            subjectId=${subject.id})}">Download</a>
         </div>
-    </div>
-</div>
-            <form method="post"> <button type="submit" class="btn btn-primary" value="Delete">Delete All</button></form>
-
-
-</body>
+                    <form method="post"> <button type="submit" class="btn btn-primary" value="Delete">Delete All</button></form>
+    </body>
 </html>

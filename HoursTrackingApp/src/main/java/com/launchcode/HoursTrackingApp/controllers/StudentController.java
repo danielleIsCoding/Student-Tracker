@@ -94,7 +94,7 @@ public class StudentController  {
 
     @PostMapping("student/view/{studentId}")
     public String deleteStudent( @PathVariable int studentId){
-        studentRepository.deleteById(studentId); ;
+        studentRepository.deleteById(studentId);
         return "redirect:/student/index";
     }
 

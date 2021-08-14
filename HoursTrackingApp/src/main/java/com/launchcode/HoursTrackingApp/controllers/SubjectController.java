@@ -66,7 +66,6 @@ public class SubjectController {
     }
 
     @PostMapping("subject/{subjectId}")
-
     public String deleteSubject(@PathVariable int subjectId) {
 
         @Valid Subject subject = subjectRepository.findById(subjectId).get();

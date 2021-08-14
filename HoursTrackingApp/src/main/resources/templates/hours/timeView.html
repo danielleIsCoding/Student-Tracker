@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+    <head>
+        <title>Welcome to the Hours Tracker App</title>
+        <script th:replace="fragments/header:: header" >
+
+        </script>
+    </head>
+    <body>
+        <div class="card">
+            <div><h2 class="card-header" th:text="${'Student: ' + student.name }">Default Title</h2>
+                <div class="row"> <!-- Bread crumbs go here --></div>
+            </div>
+            <!-- here starts hours information -->
+            <div class="card-body">
+                <div class="card">
+                    <div class="card-header" th:text="${'Subject: ' + subject.name }">Subject Name</div>
+                    <div class="card-body">
+
+                            <div class="list-group-item list-group-item-action">
+                                    Date:<p th:text="${hours.date}"></p>
+                                    Work Done:<p th:text="${hours.notes}"></p>
+                                    Time Completed:<p th:text="${hours.total}"></p>
+                                <a class="btn btn-primary" th:href="@{/student/view/{studentId}/subject/{subjectId}/editHours/{hoursId}(studentId=${student.id},
+                                                            subjectId=${subject.id}, hoursId=${hours.id})}">Edit Entry</a>
+                            </div>
+                                <form method="post"> <button type="submit" class="btn btn-primary" value="Delete">Delete Entry</button></form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
