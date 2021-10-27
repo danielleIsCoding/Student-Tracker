@@ -7,10 +7,10 @@
 * [Status](#status)
 * [Authors](#authors)
 ## General Information
-Being a parent during a global pandemic was one of the hardest parts of being a parent. 
+Being a parent during a global pandemic forced us to tink outside of the box and come up with a different way to educate our children. 
 Many parents decided to homeschool their children traditionally and it posed some very difficult situations. 
-One of the main issues was keeping track of all the hours and lessons each student had been taught in each subject. 
-I've come up with a web application that’s simple to use for organizing all these very important metrics needed to meet state requirements. 
+One of the main issues is keeping track of all the hours and lessons each student has been taught in each subject. In response to this problemmy solution
+was a web application that’s simple to use for organizing all these very important metrics needed to meet state requirements. 
 ## Technologies
 * Java 
 * Spring Boot
