@@ -1,5 +1,5 @@
 ## Name
-### Homeschool-Time-tracker
+### Student Tracker
 ## Table of Contents
 * [General Information](#general-information) 
 * [Technologies](#technologies)
