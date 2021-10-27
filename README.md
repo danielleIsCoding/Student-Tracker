@@ -9,7 +9,7 @@
 ## General Information
 Being a parent during a global pandemic was one of the hardest parts of being a parent. 
 Many parents decided to homeschool their children traditionally and it posed some very difficult situations. 
-One of them main issues was keeping track of all the hours and lessons each student have been taught in each subject. 
+One of the main issues was keeping track of all the hours and lessons each student had been taught in each subject. 
 I've come up with a web application that’s simple to use for organizing all these very important metrics needed to meet state requirements. 
 ## Technologies
 * Java 
